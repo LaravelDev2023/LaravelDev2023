@@ -41,7 +41,8 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
-
+        $data =  $request->all();
+        echo"<pre>"; print_r($data); exit;
         
     }
 
