@@ -39,7 +39,7 @@
                     <div class="col">
                                 <label for="inputCountry" class="form-label">Manufactrur</label>
                                 <select class="form-select" id="inputCountry" aria-label="Default select example"
-                                        required="" name="country">
+                                        required="" name="brand">
                                     <option selected disabled>Select</option>
                                     @foreach($all_brand as $all_brands)
                                     <option value="{{ $all_brands->id }}">{{ $all_brands->name }}</option>
@@ -55,14 +55,14 @@
                                        required="">
                             </div>       
                     </div>
-
+                    
                     <div class="row mb-3">
-                            <div class="col">
-                                <label for="fname" class="form-label">Gender</label>
-                                <input type="text" class="form-control" id="gender" name="gender" placeholder="Meet"
-                                       required="">
-                            </div>       
+                    <div class="col">
+                        <label for="gender" class="form-label">Gender</label><br>
+                        <input type="radio" id="gender" name="gender" value="Male" checked>Male
+                        <input type="radio" id="gender" name="gender" value="Female">Female
                     </div>
+                 </div>
 
                     <div class="row mb-3">
                             <div class="col">

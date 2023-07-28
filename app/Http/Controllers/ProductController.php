@@ -43,6 +43,16 @@ class ProductController extends Controller
         //
         $data =  $request->all();
         echo"<pre>"; print_r($data); exit;
+        $this->validate($request,[
+            'name' => 'required|min:5|max:10|string',
+            'price' => 'required|float',
+            'brand' => 'required|email|unique:users,email',
+            'contact' => 'numeric|nullable',
+            'password' => 'required|min:6',
+            'gender' => 'required|in:Male,Female',
+            'adderess' => 'nullable|string|max:100',
+            'country' => 'required|exists:countries,id',
+        ]);
         
     }
 
