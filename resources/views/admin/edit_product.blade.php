@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{route('product.update',['product' => $product->id])}}" enctype="multipart/form-data">
                      @csrf
-                     @method('POST')   
+                     @method('PUT')
                     <div class="row mb-3">
                             <div class="col">
                                 <label for="fname" class="form-label">Product Name</label>
@@ -58,7 +58,7 @@
                                         required="" name="brand_id">
                                     <option selected disabled>Select</option>
                                     @foreach($all_brand as $all_brands)
-                                    <option value="{{ $all_brands->id }}">{{ $all_brands->name }}</option>
+                                    <option value="{{ $all_brands->id }}" @if($product->brand_id == $all_brands->id){{'selected'}} @endif>{{ $all_brands->name }}</option>
                                     @endforeach
 
                                 </select>
@@ -75,8 +75,8 @@
                     <div class="row mb-3">
                     <div class="col">
                         <label for="gender" class="form-label">Gender</label><br>
-                        <input type="radio" id="gender" name="gender" value="Male" checked>Male
-                        <input type="radio" id="gender" name="gender" value="Female">Female
+                        <input type="radio" id="gender" name="gender" value="Male" @if($product->gender == 'Male'){{'checked'}} @endif>Male
+                        <input type="radio" id="gender" name="gender" value="Female" @if($product->gender == 'Female'){{'checked'}} @endif>Female
                     </div>
                  </div>
 
@@ -106,11 +106,12 @@
                            <div class="col">
                                 <label for="profile" class="form-label">Image</label><br>
                                 <input type="file" class="form-control-file" name="image" id="image">
+                                <img src="{{asset('profiles/products').'/'.$product->image}}" width="150" height="150">
                             </div>
                         </div>
                         <br>
                         <div class="mb-3">
-                            <input type="submit" name="product" id="product" value="Add Product" class="btn btn-primary">
+                            <input type="submit" name="product" id="product" value=" Product" class="btn btn-primary">
                         </div>
                     </form>
                 </div>

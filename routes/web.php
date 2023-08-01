@@ -65,5 +65,9 @@ Route::group(['prefix' => '/admin', 'middleware' => ['checkUser']], function(){
 
     //Product model start
     Route::resource('product',ProductController::class);
+    Route::controller(ProductController::class)->group(function () {
+        Route::get('deactivate_product/{id}/{status?}', 'deactivateProductByAdmin')->name('deactivate_product');
+    });
+
     
 });

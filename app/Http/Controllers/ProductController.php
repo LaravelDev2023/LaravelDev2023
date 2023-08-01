@@ -64,6 +64,7 @@ class ProductController extends Controller
         $req['image'] = $imageName;
        
         $requestData = Product::create($req);
+        return redirect()->route('product.index')->with('success','Product Added successfully!');
         
     }
 
@@ -101,6 +102,28 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        $this->validate($request,[
+            'name' => 'required|min:5|string',
+            'price' => 'required|numeric',
+            'sale_price' => 'required|numeric',
+            'color' => 'required',
+            'brand_id' => 'required|exists:brands,id',
+            'product_code' => 'required',
+            'gender' => 'required',
+            'function' => 'required',
+            'stock' => 'required',
+            'description' => 'required',
+            'image' => 'required|mimes:jpg,jpeg,png',
+        ]);
+        $req=$request->except(['_token', 'regist']);
+        $imageName = 'lv'.rand().'.'.$request->image->extension();
+        $request->image->move(public_path('profiles/products'),$imageName);
+        $req['image'] = $imageName;
+       
+        $requestData = Product::find($product->id);
+        $requestData->update($req);
+        return redirect()->route('product.index')->with('success','Product Updated successfully!');
+        
     }
 
     /**
@@ -113,4 +136,14 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function deactivateProductByAdmin(Request $request, $id, $status=1){
+   
+        $product=Product::find($id);
+        if(!empty($product)){
+         $product->is_active = $status;
+         $product->save();
+         return redirect()->route('product.index');
+        }
+     }
 }
