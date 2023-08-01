@@ -87,6 +87,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        $all_brand = Brands::all();
+        return view('admin.edit_product', compact('product','all_brand'));
     }
 
     /**

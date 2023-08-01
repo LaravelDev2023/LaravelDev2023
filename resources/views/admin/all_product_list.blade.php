@@ -39,7 +39,7 @@
                                             <td>{{$all_product->description}}</td>
                                             <td><img src="{{asset('profiles/products').'/'.$all_product->image}}" width="150" height="150"></td>
                                             <td>
-                                            <a type="button" class="btn btn-success" href="{{ route('brands.edit',['brand' => $all_product->id])}}">Edit</a>
+                                            <a type="button" class="btn btn-success" href="{{ route('product.edit',['product' => $all_product->id])}}">Edit</a>
                                             <a type="button" class="btn btn-{{$all_product->is_active==1?'success':'danger'}}" href="{{ route('deactivate_brands',['id' => $all_product->id,'status'=>$all_product->is_active == 1 ? 0 : 1])}}">{{ $all_product->is_active == 1 ? 'Deactive' : 'Active' }}</a>
 
 
