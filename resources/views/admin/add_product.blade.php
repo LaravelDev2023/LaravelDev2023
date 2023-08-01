@@ -55,7 +55,7 @@
                     <div class="col">
                                 <label for="inputCountry" class="form-label">Manufactrur</label>
                                 <select class="form-select" id="inputCountry" aria-label="Default select example"
-                                        required="" name="brand">
+                                        required="" name="brand_id">
                                     <option selected disabled>Select</option>
                                     @foreach($all_brand as $all_brands)
                                     <option value="{{ $all_brands->id }}">{{ $all_brands->name }}</option>

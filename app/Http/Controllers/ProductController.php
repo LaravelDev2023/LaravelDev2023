@@ -47,10 +47,10 @@ class ProductController extends Controller
         //
         $this->validate($request,[
             'name' => 'required|min:5|string',
-            'price' => 'required|float',
-            'sale_price' => 'required|float',
+            'price' => 'required|numeric',
+            'sale_price' => 'required|numeric',
             'color' => 'required',
-            'brand' => 'required',
+            'brand_id' => 'required|exists:brands,id',
             'product_code' => 'required',
             'gender' => 'required',
             'function' => 'required',
@@ -60,10 +60,10 @@ class ProductController extends Controller
         ]);
         $req=$request->except(['_token', 'regist']);
         $imageName = 'lv'.rand().'.'.$request->image->extension();
-        $request->image->move(public_path('products/products'),$imageName);
+        $request->image->move(public_path('profiles/products'),$imageName);
         $req['image'] = $imageName;
        
-        $requestData = Products::create($req);
+        $requestData = Product::create($req);
         
     }
 
