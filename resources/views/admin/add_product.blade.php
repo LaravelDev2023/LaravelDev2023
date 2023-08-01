@@ -36,6 +36,22 @@
                             </div>       
                     </div>
 
+                    <div class="row mb-3">
+                            <div class="col">
+                                <label for="fname" class="form-label">Sale Price</label>
+                                <input type="text" class="form-control" id="price" name="sale_price" placeholder="Meet"
+                                       required="">
+                            </div>       
+                    </div>
+
+                    <div class="row mb-3">
+                            <div class="col">
+                                <label for="fname" class="form-label">Color</label>
+                                <input type="text" class="form-control" id="price" name="color" placeholder="Meet"
+                                       required="">
+                            </div>       
+                    </div>
+
                     <div class="col">
                                 <label for="inputCountry" class="form-label">Manufactrur</label>
                                 <select class="form-select" id="inputCountry" aria-label="Default select example"
