@@ -26,6 +26,7 @@ use App\Http\Controllers\HomePageIndex;
 
 Route::controller(HomePageIndex::class)->group(function(){
     Route::get('/','index')->name('home');
+    Route::get('/view-product/{product:product_code}', 'productInfo')->name('product_info');
 });
 
 Route::controller(UserRegistration::class)->group(function () {

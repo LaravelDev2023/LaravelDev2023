@@ -16,4 +16,10 @@ class HomePageIndex extends Controller
         return view('user_mainpage',compact('product_data'));
         
     }
+
+    public function productInfo(Request $request, Product $product)
+    {
+        $relatedProducts = Product::where('gender', $product->gender)->where('function', $product->function)->inRandomOrder()->limit(4)->get();
+        return view('product_view', compact('product', 'relatedProducts'));
+    }
 }
