@@ -6,6 +6,7 @@ use App\Http\Controllers\UserProfile;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomePageIndex;
 
 
 /*
@@ -19,9 +20,13 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('user_mainpage');
-})->name('home');
+// Route::get('/', function () {
+//     return view('user_mainpage');
+// })->name('home');
+
+Route::controller(HomePageIndex::class)->group(function(){
+    Route::get('/','index')->name('home');
+});
 
 Route::controller(UserRegistration::class)->group(function () {
     Route::get('countries','index')->name('countries');
