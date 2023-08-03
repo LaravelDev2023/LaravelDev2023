@@ -7,6 +7,11 @@
                     @foreach($product_data as $product)
                     <div class="col mb-5">
                         <div class="card h-100">
+                        @if(empty($product->sale_price) && $product->stock != 0)
+                        <h5 class="fw-bolder">Sale</h5>
+                        @elseif($product->stock == 0)
+                        <h5 class="fw-bolder">Out Of Stock</h5>
+                        @endif
                             <!-- Product image-->
                             <img class="card-img-top" src="{{$product->image}}" alt="{{$product->name}}" />
                             
@@ -18,7 +23,11 @@
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">{{$product->name}}</h5>
                                     <!-- Product price-->
-                                    {{$product->price}}
+                                    @if(empty($product->sale_price))
+                                    {{'₹' . $product->price}}
+                                    @else
+                                    {{'₹' . $product->sale_price}}
+                                    @endif
                                 </div>
                             </div>
                             <!-- Product actions-->
