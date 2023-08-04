@@ -45,7 +45,7 @@
                     </div>
                 @endforeach
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <a href="products_view.html" class="btn btn-outline-dark">View All</a>
+                    <a href="{{ route('product_list') }}" class="btn btn-outline-dark">View All</a>
                 </div>
 
             </div>
