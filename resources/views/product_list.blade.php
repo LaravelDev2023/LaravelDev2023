@@ -35,7 +35,7 @@
                                 <label><b>Color:</b></label>
                                 <select class="form-select" name="color" id="color" aria-label="color filter">
                                     <option selected disabled>Select</option>
-                                    @foreach(\Illuminate\Support\Facades\Config::get('Colors') as $value)
+                                    @foreach(\Illuminate\Support\Facades\Config::get('colors') as $value)
                                         <option value="{{ $value }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
@@ -44,7 +44,7 @@
                                 <label><b>Function:</b></label>
                                 <select class="form-select" name="function" id="function" aria-label="function filter">
                                     <option selected disabled>Select</option>
-                                    @foreach(\Illuminate\Support\Facades\Config::get('watch_functions') as $value)
+                                    @foreach(\Illuminate\Support\Facades\Config::get('function') as $value)
                                         <option value="{{ $value }}">{{ $value }}</option>
                                     @endforeach
                                 </select>

@@ -35,34 +35,34 @@ class HomePageIndex extends Controller
         }
         if (isset($requestData['price']) && !empty($requestData['price'])) {
             if ($requestData['price'] == 'less_than_1500') {
-//                $products = $products->where(function($query) use($requestData){
-//                        $query->where('price', '<', 1500);
-//                        $query->orWhere('sale_price', '<', 1500);
-//                });
+               $products = $products->where(function($query) use($requestData){
+                       $query->where('price', '<', 1500);
+                       $query->orWhere('sale_price', '<', 1500);
+               });
                 $products = $products->where('price', '<', 1500);
             } elseif ($requestData['price'] == 'between_1500_5k') {
-//                $products = $products->where(function($query) use($requestData){
-//                        $query->whereBetween('price', [1500, 5000]);
-//                        $query->orWhereBetween('sale_price', [1500, 5000]);
-//                });
+               $products = $products->where(function($query) use($requestData){
+                       $query->whereBetween('price', [1500, 5000]);
+                       $query->orWhereBetween('sale_price', [1500, 5000]);
+               });
                 $products = $products->whereBetween('price', [1500, 5000]);
             } elseif ($requestData['price'] == 'between_5k_10k') {
-//                $products = $products->where(function($query) use($requestData){
-//                        $query->whereBetween('price', [5000, 10000]);
-//                        $query->orWhereBetween('sale_price', [5000, 10000]);
-//                });
+               $products = $products->where(function($query) use($requestData){
+                       $query->whereBetween('price', [5000, 10000]);
+                       $query->orWhereBetween('sale_price', [5000, 10000]);
+               });
                 $products = $products->whereBetween('price', [5000, 10000]);
             } elseif ($requestData['price'] == 'between_10k_30k') {
-//                $products = $products->where(function($query) use($requestData){
-//                        $query->whereBetween('price', [10000, 30000]);
-//                        $query->orWhereBetween('sale_price', [10000, 30000]);
-//                });
+               $products = $products->where(function($query) use($requestData){
+                       $query->whereBetween('price', [10000, 30000]);
+                       $query->orWhereBetween('sale_price', [10000, 30000]);
+               });
                 $products = $products->whereBetween('price', [10000, 30000]);
             } elseif ($requestData['price'] == 'greater_than_30k') {
-//                $products = $products->where(function($query) use($requestData){
-//                        $query->whereBetween('price', '>', 30000);
-//                        $query->orWhereBetween('sale_price', '>', 30000);
-//                });
+               $products = $products->where(function($query) use($requestData){
+                       $query->whereBetween('price', '>', 30000);
+                       $query->orWhereBetween('sale_price', '>', 30000);
+               });
                 $products = $products->where('price', '>', 30000);
             }
         }
