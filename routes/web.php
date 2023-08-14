@@ -30,6 +30,8 @@ Route::controller(HomePageIndex::class)->group(function(){
     Route::get('/list-product', 'productList')->name('product_list');
 });
 
+Route::resource('cart', \App\Http\Controllers\CartController::class);
+
 Route::controller(UserRegistration::class)->group(function () {
     Route::get('countries','index')->name('countries');
     Route::get('register','UserRegistration')->name('register');
