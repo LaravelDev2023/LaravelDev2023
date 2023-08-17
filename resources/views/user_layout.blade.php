@@ -10,7 +10,7 @@
 </head>
 <body>
 @include('user_header')
-@include('flash-message')
+@include('flash_data')
 @yield('content')
 @include('user_footer')
 </body>

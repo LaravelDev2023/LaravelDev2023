@@ -31,6 +31,8 @@ Route::controller(HomePageIndex::class)->group(function(){
 });
 
 Route::resource('cart', \App\Http\Controllers\CartController::class);
+Route::post('add-to-cart', [\App\Http\Controllers\CartController::class, 'addToCart'])->name('add_to_cart');
+Route::get('store-order', [\App\Http\Controllers\CartController::class, 'storeOrder'])->name('store_order');
 
 Route::controller(UserRegistration::class)->group(function () {
     Route::get('countries','index')->name('countries');

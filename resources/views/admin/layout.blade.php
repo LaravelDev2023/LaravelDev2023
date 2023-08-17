@@ -18,7 +18,7 @@
               @include('admin.layout_partials.sidebar_nav')
             </div>
             <div id="layoutSidenav_content">
-              @include('flash-message')
+              @include('flash_data')
               @yield('content')
               @include('admin.layout_partials.footer')
             </div>
