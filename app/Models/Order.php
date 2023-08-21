@@ -23,4 +23,15 @@ class Order extends Model
         'comment',
         'status',
     ];
+
+
+    public function customerData()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id')->select('id', 'fname', 'lname');
+    }
+
+    public function lineitemsData()
+    {
+        return $this->hasMany(Lineitem::class, 'order_id', 'id');
+    }
 }

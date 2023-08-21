@@ -80,5 +80,11 @@ Route::group(['prefix' => '/admin', 'middleware' => ['checkUser']], function(){
         Route::get('deactivate_product/{id}/{status?}', 'deactivateProductByAdmin')->name('deactivate_product');
     });
 
+    Route::controller(\App\Http\Controllers\OrderController::class)->group(function () {
+        Route::get('/orders', 'index')->name('list_orders');
+        Route::post('/change-order-status/{id}', 'changeOrderStatus')->name('admin_change_order_status');
+        Route::get('/lineitems/{id}', 'getLineItems')->name('get_line_items');
+    });
+
     
 });
