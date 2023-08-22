@@ -24,7 +24,7 @@ class OrderController extends Controller
     public function getLineItems(Request $request, $id)
     {
         $orderData = Order::where('id', $id)->with('lineitemsData')->first();
-        echo"<pre>"; print_r($orderData); exit;
+        //echo"<pre>"; print_r($orderData); exit;
         return view('admin.lineitems_list', compact('orderData'));
     }
 }
